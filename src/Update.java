@@ -12,17 +12,17 @@ public class Update {
         System.out.println("\nDigite o id do usuário: ");
         int id = sc.nextInt();
 
-        System.out.println("\nDigite o nome do usuário: ");
-        sc.nextLine(); // Consume the remaining newline character
+        System.out.println("Digite o nome do usuário: ");
+        sc.nextLine();
         String nome = sc.nextLine();
 
-        System.out.println("\nDigite o login do usuário: ");
+        System.out.println("Digite o login do usuário: ");
         String login = sc.nextLine();
 
-        System.out.println("\nDigite o email do usuário: ");
+        System.out.println("Digite o email do usuário: ");
         String email = sc.nextLine();
 
-        System.out.println("\nDigite a senha do usuário: ");
+        System.out.println("Digite a senha do usuário: ");
         String senha = sc.nextLine();
 
         if (id != 0 && nome != null && login != null && email != null && senha != null) {
@@ -34,6 +34,11 @@ public class Update {
             update.setSenha(senha);
 
             new UserDAO().atualizar(update);
+            try {
+                App.main(args);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             System.out.println("Erro: todos os campos devem ser preenchidos.");
         }

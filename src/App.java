@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Menu.main(args); // Menu
+        Menu.main(args);
         @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite o número da operação desejada: ");
+        System.out.println("\nDigite o número da operação desejada: ");
         int opcao = sc.nextInt();
 
         if (opcao == 1) {
@@ -24,3 +24,5 @@ public class App {
         }
     }
 }
+
+// Made by: a5ur4

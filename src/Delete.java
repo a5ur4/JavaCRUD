@@ -18,6 +18,11 @@ public class Delete {
 
             new UserDAO().deletar(delete);
             System.out.println("Usuário deletado com sucesso.");
+            try {
+                App.main(args);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             System.out.println("Erro: o campo id deve ser preenchido.");
         }

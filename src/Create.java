@@ -9,7 +9,7 @@ public class Create {
         @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Digite o nome do usuário: ");
+        System.out.println("\nDigite o nome do usuário: ");
         String nome = sc.nextLine();
         
         System.out.println("Digite o login do usuário: ");
@@ -29,8 +29,10 @@ public class Create {
             create.setSenha(senha);
     
             new UserDAO().cadastrar(create);
+            App.main(args);
         } else {
             System.out.println("Erro: todos os campos devem ser preenchidos.");
+            App.main(args);
         }
     }
 }

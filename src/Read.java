@@ -17,6 +17,7 @@ public class Read {
                 System.out.println("Email: " + rs.getString("email"));
                 System.out.println("Senha: " + rs.getString("senha"));
             }
+            App.main(args);
         } catch (Exception e) {
             e.printStackTrace();
         }

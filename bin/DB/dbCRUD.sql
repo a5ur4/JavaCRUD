@@ -10,4 +10,4 @@ CREATE TABLE user (
     primary key(id)
 );
 
-select * from user;
+SELECT * FROM user;

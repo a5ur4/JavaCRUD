@@ -2,7 +2,7 @@ CREATE DATABASE JavaCRUD;
 USE JavaCRUD;
 
 CREATE TABLE user (
-	id int not null auto_increment, 
+	id int not null auto_increment,
 	nome varchar(45) not null,
     login varchar(45) not null,
     email varchar(45) not null,
@@ -11,3 +11,4 @@ CREATE TABLE user (
 );
 
 SELECT * FROM user;
+SELECT id, nome, login, email, senha FROM user WHERE id = 2;

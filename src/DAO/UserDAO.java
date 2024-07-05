@@ -26,23 +26,6 @@ public class UserDAO {
         }
     }
 
-    public void ler(User user) {
-        String read = "SELECT * FROM user WHERE id = ?";
-
-        PreparedStatement ps = null;
-
-        try {
-            ps = Conection.getConection().prepareStatement(read);
-            ps.setInt(1, user.getCodigo());
-
-            ps.execute();
-            ps.close();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void atualizar(User user) {
         String update = "UPDATE user SET nome = ?, login = ?, email = ?, senha = ? WHERE id = ?";
 

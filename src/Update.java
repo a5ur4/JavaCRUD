@@ -12,17 +12,17 @@ public class Update {
         System.out.println("\nDigite o id do usuário: ");
         int id = sc.nextInt();
 
-        System.out.println("Digite o nome do usuário: ");
+        System.out.println("Digite o novo nome do usuário: ");
         sc.nextLine();
         String nome = sc.nextLine();
 
-        System.out.println("Digite o login do usuário: ");
+        System.out.println("Digite o novo login do usuário: ");
         String login = sc.nextLine();
 
-        System.out.println("Digite o email do usuário: ");
+        System.out.println("Digite o novo email do usuário: ");
         String email = sc.nextLine();
 
-        System.out.println("Digite a senha do usuário: ");
+        System.out.println("Digite a nova senha do usuário: ");
         String senha = sc.nextLine();
 
         if (id != 0 && nome != null && login != null && email != null && senha != null) {

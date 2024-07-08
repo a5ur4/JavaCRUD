@@ -1,8 +1,12 @@
-import entity.User;
+package com.components;
 
 import java.util.Scanner;
 
-import DAO.UserDAO;
+import org.json.JSONObject;
+
+import com.DAO.UserDAO;
+import com.entity.User;
+import com.main.App;
 
 public class Create {
     public static void main(String[] args) throws Exception {
@@ -29,6 +33,22 @@ public class Create {
             create.setSenha(senha);
     
             new UserDAO().cadastrar(create);
+
+            JSONObject userInfo = new JSONObject();
+            userInfo.put("nome", nome);
+            userInfo.put("login", login);
+            userInfo.put("email", email);
+
+            String userData = userInfo.toString();
+
+            String projectDir = System.getProperty("user.dir");
+
+            String resourcesPath = projectDir + "/src/main/resources/" + nome + ".png";
+            
+            GenerateQr.generateQrCode(userData, resourcesPath, "UTF-8");
+
+            System.out.println("QR Code gerado com sucesso!");
+
             App.main(args);
         } else {
             System.out.println("Erro: todos os campos devem ser preenchidos.");

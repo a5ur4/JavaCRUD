@@ -1,6 +1,8 @@
-import entity.User;
+package com.components;
 
-import DAO.UserDAO;
+import com.DAO.UserDAO;
+import com.entity.User;
+import com.main.App;
 
 import java.util.Scanner;
 

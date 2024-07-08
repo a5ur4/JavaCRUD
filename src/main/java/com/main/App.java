@@ -1,4 +1,12 @@
+package com.main;
+
 import java.util.Scanner;
+
+import com.components.Create;
+import com.components.Delete;
+import com.components.Menu;
+import com.components.Read;
+import com.components.Update;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -24,5 +32,3 @@ public class App {
         }
     }
 }
-
-// Made by: a5ur4

@@ -1,7 +1,13 @@
+package com.components;
+
+import java.util.Scanner;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Scanner;
-import conect.Conection;
+import java.io.IOException;
+import com.google.zxing.NotFoundException;
+
+import com.main.App;
+import com.conect.Conection;
 
 public class Read {
     static final String QUERY = "SELECT id, nome, login, email, senha FROM user WHERE id = ";
@@ -12,6 +18,7 @@ public class Read {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n1 - Listar todos os usuários");
         System.out.println("2 - Visualizar usuário específico");
+        System.out.println("3 - Visualizar Qr Code de usuário específico");
         int option = sc.nextInt();
         
         if (option == 1) {
@@ -47,6 +54,20 @@ public class Read {
                 }
                 App.main(args);
             } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (option == 3) {
+            System.out.println("Digite o nome do usuário que deseja visualizar o Qr Code: ");
+            String userName = sc.next();
+
+            String projectDir = System.getProperty("user.dir");
+
+            String resourcesPath = projectDir + "/src/main/resources/" + userName + ".png";
+
+            try {
+                System.out.println("The data stored in the QR Code is: " + ReadingQr.readQr(resourcesPath));
+                System.out.println("QR Code read successfully");
+            } catch (IOException | NotFoundException e) {
                 e.printStackTrace();
             }
         } else {

@@ -1,8 +1,10 @@
-import entity.User;
-
-import DAO.UserDAO;
+package com.components;
 
 import java.util.Scanner;
+
+import com.DAO.UserDAO;
+import com.entity.User;
+import com.main.App;
 
 public class Delete {
     public static void main(String[] args) {

@@ -11,4 +11,3 @@ CREATE TABLE user (
 );
 
 SELECT * FROM user;
-SELECT id, nome, login, email, senha FROM user WHERE id = 2;

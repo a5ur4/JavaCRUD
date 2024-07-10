@@ -40,17 +40,22 @@ public class Read {
         } else if (option == 2) {
             System.out.println("Digite o ID do usuário que deseja visualizar: ");
             int userId = sc.nextInt();
-
             try {
-                Statement stmt = Conection.getConection().createStatement();
-                ResultSet rs = stmt.executeQuery(QUERY + userId);
-                while (rs.next()) {
-                    System.out.println("\n");
-                    System.out.println("ID: " + rs.getInt("id"));
-                    System.out.println("Nome: " + rs.getString("nome"));
-                    System.out.println("Login: " + rs.getString("login"));
-                    System.out.println("Email: " + rs.getString("email"));
-                    System.out.println("Senha: " + rs.getString("senha"));
+                try {
+                    Statement stmt = Conection.getConection().createStatement();
+                    ResultSet rs = stmt.executeQuery(QUERY + userId);
+                    if (rs.next()) {
+                        System.out.println("\n");
+                        System.out.println("ID: " + rs.getInt("id"));
+                        System.out.println("Nome: " + rs.getString("nome"));
+                        System.out.println("Login: " + rs.getString("login"));
+                        System.out.println("Email: " + rs.getString("email"));
+                        System.out.println("Senha: " + rs.getString("senha"));
+                    } else {
+                        System.out.println("\nUsuário não encontrado.");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 App.main(args);
             } catch (Exception e) {
@@ -65,8 +70,13 @@ public class Read {
             String resourcesPath = projectDir + "/src/main/resources/" + userName + ".png";
 
             try {
-                System.out.println("The data stored in the QR Code is: " + ReadingQr.readQr(resourcesPath));
-                System.out.println("QR Code read successfully");
+                System.out.println("As informações no QR Code são: " + ReadingQr.readQr(resourcesPath));
+                System.out.println("QR Code lido com sucesso!");
+                try {
+                    App.main(args);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } catch (IOException | NotFoundException e) {
                 e.printStackTrace();
             }
